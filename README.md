@@ -44,3 +44,7 @@ O projeto possui apenas 2 testes:
 - Certifica de que determinados modelos conhecidos falham em alcançar a precisão mínima esperada com o dataset fornecido.
 
 Para rodar os testes, na raiz do projeto execute `python3 pytest`
+
+## Alternativamente, utilize o Colab
+
+Você pode rodar os modelos [via Colab aqui](https://github.com/kelvindules/pucrio-mvp4/blob/main/colab.ipynb)
