@@ -3,7 +3,6 @@ import processor
 import os
 import tempfile
 from flask import Flask, render_template, request
-from pathlib import Path
 
 app = Flask(__name__)
 

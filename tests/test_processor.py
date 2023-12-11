@@ -1,9 +1,8 @@
 import pandas as pd
-import random
 from processor import process
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
-from sklearn.metrics import accuracy_score, classification_report
+from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 
 threshold = 0.56
