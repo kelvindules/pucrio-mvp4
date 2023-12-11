@@ -66,37 +66,25 @@ def process(df):
 
 
 class Report:
-    lr_accuracy: str
-    lr_report: str
     dt_accuracy: str
     dt_report: str
     rf_accuracy: str
     rf_report: str
-    svm_accuracy: str
-    svm_report: str
     xgb_accuracy: str
     xgb_report: str
 
     def __init__(
         self,
-        lr_accuracy,
-        lr_report,
         dt_accuracy,
         dt_report,
         rf_accuracy,
         rf_report,
-        svm_accuracy,
-        svm_report,
         xgb_accuracy,
         xgb_report,
     ):
-        self.lr_accuracy = lr_accuracy
-        self.lr_report = lr_report
         self.dt_accuracy = dt_accuracy
         self.dt_report = dt_report
         self.rf_accuracy = rf_accuracy
         self.rf_report = rf_report
-        self.svm_accuracy = svm_accuracy
-        self.svm_report = svm_report
         self.xgb_accuracy = xgb_accuracy
         self.xgb_report = xgb_report
