@@ -1,0 +1,96 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Results</title>
+
+    <!-- Add Bootstrap CDN links -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Predição de vitória por jogadas agressivas</h1>
+        <h5>Baseado em partidas da NHL (National Hockey League)</h5>
+
+        <hr/>
+
+        <div class="card mt-4">
+            <div class="card-body">
+                <form method="post" action="/" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="fileInput">Importar arquivo .csv:</label>
+                        <input type="file" class="form-control-file" id="fileInput" name="file">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Importar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">
+                Observações
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>Won -> Se o time venceu a partida (True/False)</li>
+                    <li>Hits -> Quantidade de acertos que os jogadores tiveram em outros jogadores (contatos, empurrões, cortes de contato etc)</li>
+                    <li>Takeaways -> Quantidade de roubo de discos, seja no mano a mano ou interceptação de passe</li>
+                    <li>FaceOffWinPercentage -> Percentual de vitórias em faceoffs. Faceoff é uma disputa de disco parado entre dois jogadores com auxílio do árbitro.
+                </ul>
+                <p>Obs: É esperado que o dataset possua pelo menos as colunas: "won" (bool), "hits" (str ou int), "takeaways" (str ou int) e "faceOffWinPercentage" (str ou int ou float) para que a análise rode sem problemas.</p>
+            </div>
+        </div>
+
+        
+        {% if report and report.dt_accuracy and report.dt_report %}
+        <div class="card mt-4">
+            <div class="card-header">
+                Decision Tree
+            </div>
+            <div class="card-body">
+                <b>Precisão</b>
+                <p class="card-text">{{ report.dt_accuracy }}</p>
+                <b>Relatório</b>
+                <pre class="card-text">{{ report.dt_report }}</pre>
+            </div>
+        </div>
+        {% endif %}
+        
+        {% if report and report.rf_accuracy and report.rf_report %}
+        <div class="card mt-4">
+            <div class="card-header">
+                Random Forest
+            </div>
+            <div class="card-body">
+                <b>Precisão</b>
+                <p class="card-text">{{ report.rf_accuracy }}</p>
+                <b>Relatório</b>
+                <pre class="card-text">{{ report.rf_report }}</pre>
+            </div>
+        </div>
+        {% endif %}
+        
+        {% if report and report.xgb_accuracy and report.xgb_report %}
+        <div class="card mt-4">
+            <div class="card-header">
+                XGB
+            </div>
+            <div class="card-body">
+                <b>Precisão</b>
+                <p class="card-text">{{ report.xgb_accuracy }}</p>
+                <b>Relatório</b>
+                <pre class="card-text">{{ report.xgb_report }}</pre>
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+
+    <hr/>
+</body>
+</html>
