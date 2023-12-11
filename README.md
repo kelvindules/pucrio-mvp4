@@ -32,7 +32,9 @@ Para rodar o projeto, na raiz execute `python3 -m flask run --host=0.0.0.0 --por
 
 ## Importe o arquivo de dados
 
-Neste repositório há um arquivo de dados para ser utilizado na demonstração em `tests/game_teams_stats.csv`. 
+Neste repositório há um arquivo de dados para ser utilizado na demonstração em `tests/game_teams_stats.csv`.
+
+O arquivo foi baixado do repositório [Kaggle](https://www.kaggle.com/datasets/martinellis/nhl-game-data).
 
 Utilize esse arquivo por conveniência.
 
